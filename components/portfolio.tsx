@@ -1,15 +1,25 @@
-"'use client'"
+"'use client'";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { CardContent, Card } from "@/components/ui/card"
-import { Github, Linkedin, Mail, Twitter, Code, Database, Server, PaintBucket, Cloud } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { CardContent, Card } from "@/components/ui/card";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Twitter,
+  Code,
+  Database,
+  Server,
+  PaintBucket,
+  Cloud,
+} from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
 export function Portfolio() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -19,13 +29,22 @@ export function Portfolio() {
           <span className="font-bold text-xl">DevPortfolio</span>
         </Link>
         <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#skills">
+          <Link
+            className="text-sm font-medium hover:underline underline-offset-4"
+            href="#skills"
+          >
             Skills
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#work">
+          <Link
+            className="text-sm font-medium hover:underline underline-offset-4"
+            href="#work"
+          >
             Work
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#contact">
+          <Link
+            className="text-sm font-medium hover:underline underline-offset-4"
+            href="#contact"
+          >
             Contact
           </Link>
         </nav>
@@ -46,9 +65,14 @@ export function Portfolio() {
             </div>
           </div>
         </section>
-        <section id="skills" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+        <section
+          id="skills"
+          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800"
+        >
           <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">Skills</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
+              Skills
+            </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
               {[
                 { name: "JavaScript", icon: Code },
@@ -58,7 +82,10 @@ export function Portfolio() {
                 { name: "Tailwind", icon: PaintBucket },
                 { name: "AWS", icon: Cloud },
               ].map((skill) => (
-                <div key={skill.name} className="flex flex-col items-center space-y-2">
+                <div
+                  key={skill.name}
+                  className="flex flex-col items-center space-y-2"
+                >
                   <skill.icon className="w-12 h-12" />
                   <h3 className="font-medium">{skill.name}</h3>
                 </div>
@@ -73,10 +100,26 @@ export function Portfolio() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
-                { name: "Project A", logo: "/placeholder.svg", description: "A revolutionary web app" },
-                { name: "Client B", logo: "/placeholder.svg", description: "E-commerce platform" },
-                { name: "Product C", logo: "/placeholder.svg", description: "AI-powered analytics tool" },
-                { name: "Service D", logo: "/placeholder.svg", description: "Cloud-based SaaS solution" },
+                {
+                  name: "Project A",
+                  logo: "/placeholder.svg",
+                  description: "A revolutionary web app",
+                },
+                {
+                  name: "Client B",
+                  logo: "/placeholder.svg",
+                  description: "E-commerce platform",
+                },
+                {
+                  name: "Product C",
+                  logo: "/placeholder.svg",
+                  description: "AI-powered analytics tool",
+                },
+                {
+                  name: "Service D",
+                  logo: "/placeholder.svg",
+                  description: "Cloud-based SaaS solution",
+                },
               ].map((project) => (
                 <Link key={project.name} href="#" className="block">
                   <Card>
@@ -93,7 +136,9 @@ export function Portfolio() {
                         width="96"
                       />
                       <h3 className="font-bold text-xl">{project.name}</h3>
-                      <p className="text-sm text-gray-500 dark:text-gray-400 text-center">{project.description}</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400 text-center">
+                        {project.description}
+                      </p>
                     </CardContent>
                   </Card>
                 </Link>
@@ -101,7 +146,10 @@ export function Portfolio() {
             </div>
           </div>
         </section>
-        <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+        <section
+          id="contact"
+          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800"
+        >
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
               Contact us
@@ -115,7 +163,7 @@ export function Portfolio() {
                 </Button>
               </div>
               <div className="flex-1 flex items-center justify-center">
-                <p className="text-xl font-semibold">Maybe...</p>
+                <p className="text-xl font-semibold">Or maybe...</p>
               </div>
               <div className="flex-1 w-full space-y-4">
                 <h3 className="text-xl font-semibold">{`You'd like to complete this form`}</h3>
@@ -133,7 +181,9 @@ export function Portfolio() {
         </section>
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-gray-500 dark:text-gray-400">© {currentYear} andreszapata.me All rights reserved.</p>
+        <p className="text-xs text-gray-500 dark:text-gray-400">
+          © {currentYear} andreszapata.me All rights reserved.
+        </p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
           <Link className="text-xs hover:underline underline-offset-4" href="#">
             <span className="sr-only">Twitter</span>
@@ -150,5 +200,5 @@ export function Portfolio() {
         </nav>
       </footer>
     </div>
-  )
+  );
 }
