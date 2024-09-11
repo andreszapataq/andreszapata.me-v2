@@ -1,5 +1,6 @@
-"'use client'";
+"use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -14,21 +15,30 @@ import {
   Server,
   PaintBucket,
   Cloud,
+  Menu,
+  X,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
 export function Portfolio() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const currentYear = new Date().getFullYear();
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="px-4 lg:px-6 h-14 flex items-center">
+      <header className="px-4 lg:px-6 h-14 flex items-center justify-between">
         <Link className="flex items-center justify-center" href="#">
-          <span className="sr-only">Developer Portfolio</span>
-          <span className="font-bold text-xl">DevPortfolio</span>
+          <span className="sr-only">Andres Zapata</span>
+          <span className="font-bold text-xl">Andres Zapata</span>
         </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
+        <button onClick={toggleMenu} className="lg:hidden">
+          <Menu className="h-6 w-6" />
+          <span className="sr-only">Toggle menu</span>
+        </button>
+        <nav className="hidden lg:flex gap-4 sm:gap-6">
           <Link
             className="text-sm font-medium hover:underline underline-offset-4"
             href="#skills"
@@ -49,6 +59,47 @@ export function Portfolio() {
           </Link>
         </nav>
       </header>
+      <div
+        className={`fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden transition-opacity duration-300 ${
+          isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={toggleMenu}
+      />
+      <div
+        className={`fixed inset-y-0 right-0 w-64 bg-white dark:bg-gray-800 z-50 shadow-lg transform transition-transform duration-300 ease-in-out lg:hidden ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="p-6">
+          <button onClick={toggleMenu} className="absolute top-4 right-4">
+            <X className="h-6 w-6" />
+            <span className="sr-only">Close menu</span>
+          </button>
+          <nav className="mt-8 flex flex-col gap-4">
+            <Link
+              className="text-lg font-medium hover:text-primary transition-colors duration-200"
+              href="#skills"
+              onClick={toggleMenu}
+            >
+              Skills
+            </Link>
+            <Link
+              className="text-lg font-medium hover:text-primary transition-colors duration-200"
+              href="#work"
+              onClick={toggleMenu}
+            >
+              Work
+            </Link>
+            <Link
+              className="text-lg font-medium hover:text-primary transition-colors duration-200"
+              href="#contact"
+              onClick={toggleMenu}
+            >
+              Contact
+            </Link>
+          </nav>
+        </div>
+      </div>
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
           <div className="container px-4 md:px-6">
@@ -70,7 +121,7 @@ export function Portfolio() {
           className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800"
         >
           <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8">
               Skills
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
@@ -95,7 +146,7 @@ export function Portfolio() {
         </section>
         <section id="work" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8">
               Work & Projects
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -151,7 +202,7 @@ export function Portfolio() {
           className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800"
         >
           <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8">
               Contact us
             </h2>
             <div className="flex flex-col md:flex-row gap-8 items-start justify-between">
