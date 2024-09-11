@@ -5,19 +5,18 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { CardContent, Card } from "@/components/ui/card";
+import { Mail, Menu, X } from "lucide-react";
 import {
-  Github,
-  Linkedin,
-  Mail,
-  Twitter,
-  Code,
-  Database,
-  Server,
-  PaintBucket,
-  Cloud,
-  Menu,
-  X,
-} from "lucide-react";
+  SiJavascript,
+  SiReact,
+  SiNodedotjs,
+  SiMongodb,
+  SiTailwindcss,
+  SiAmazonwebservices,
+  SiX,
+  SiLinkedin,
+  SiGithub,
+} from "@icons-pack/react-simple-icons";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -126,12 +125,12 @@ export function Portfolio() {
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
               {[
-                { name: "JavaScript", icon: Code },
-                { name: "React", icon: Code },
-                { name: "Node.js", icon: Server },
-                { name: "MongoDB", icon: Database },
-                { name: "Tailwind", icon: PaintBucket },
-                { name: "AWS", icon: Cloud },
+                { name: "JavaScript", icon: SiJavascript },
+                { name: "React", icon: SiReact },
+                { name: "Node.js", icon: SiNodedotjs },
+                { name: "MongoDB", icon: SiMongodb },
+                { name: "Tailwind CSS", icon: SiTailwindcss },
+                { name: "AWS", icon: SiAmazonwebservices },
               ].map((skill) => (
                 <div
                   key={skill.name}
@@ -238,15 +237,15 @@ export function Portfolio() {
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
           <Link className="text-xs hover:underline underline-offset-4" href="#">
             <span className="sr-only">Twitter</span>
-            <Twitter className="h-4 w-4" />
+            <SiX className="h-4 w-4" />
           </Link>
           <Link className="text-xs hover:underline underline-offset-4" href="#">
             <span className="sr-only">LinkedIn</span>
-            <Linkedin className="h-4 w-4" />
+            <SiLinkedin className="h-4 w-4" />
           </Link>
           <Link className="text-xs hover:underline underline-offset-4" href="#">
             <span className="sr-only">GitHub</span>
-            <Github className="h-4 w-4" />
+            <SiGithub className="h-4 w-4" />
           </Link>
         </nav>
       </footer>
