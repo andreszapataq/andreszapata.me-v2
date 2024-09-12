@@ -13,9 +13,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        {children}
-      </body>
+      <head>
+        <link
+          rel="icon"
+          href="/favicon-dark.png"
+          media="(prefers-color-scheme: light)"
+        />
+        <link
+          rel="icon"
+          href="/favicon-light.png"
+          media="(prefers-color-scheme: dark)"
+        />
+      </head>
+      <body>{children}</body>
     </html>
   );
 }

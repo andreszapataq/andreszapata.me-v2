@@ -151,22 +151,22 @@ export function Portfolio() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 {
-                  name: "Project A",
+                  name: "Jhonny Aponza",
                   logo: "/placeholder.svg",
                   description: "A revolutionary web app",
                 },
                 {
-                  name: "Client B",
+                  name: "NAB Tax Services",
                   logo: "/placeholder.svg",
                   description: "E-commerce platform",
                 },
                 {
-                  name: "Product C",
+                  name: "Vive Solutions",
                   logo: "/placeholder.svg",
                   description: "AI-powered analytics tool",
                 },
                 {
-                  name: "Service D",
+                  name: "Zanto",
                   logo: "/placeholder.svg",
                   description: "Cloud-based SaaS solution",
                 },
