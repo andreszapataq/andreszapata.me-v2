@@ -105,11 +105,11 @@ export function Portfolio() {
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                  Welcome to My Developer Portfolio
+                  Say Hello To My Developer Portfolio
                 </h1>
                 <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                  {`I'm a full-stack developer passionate about creating innovative web solutions. Explore my skills,
-                  projects, and get in touch!`}
+                  {`I really enjoy designing, developing software and bringing interesting projects to life. Explore my skills,
+                  products, and get in touch!`}
                 </p>
               </div>
             </div>
@@ -153,25 +153,34 @@ export function Portfolio() {
                 {
                   name: "Jhonny Aponza",
                   logo: "/images/jhonny-aponza.svg",
-                  description: "A revolutionary web app",
+                  description: "Keynote speaker website done with Astro",
+                  href: "https://jhonnyaponza.org/",
                 },
                 {
                   name: "NAB Tax Services",
                   logo: "/images/nab.svg",
-                  description: "E-commerce platform",
+                  description: "Tax firm website done with Astro",
+                  href: "https://nabtaxservices.com/",
                 },
                 {
                   name: "Vive Solutions",
                   logo: "/images/vive-solutions.svg",
-                  description: "AI-powered analytics tool",
+                  description: "Medical devices website done with WP",
+                  href: "https://vivesolutions.co/",
                 },
                 {
                   name: "Zanto",
                   logo: "/images/zanto.svg",
-                  description: "Cloud-based SaaS solution",
+                  description: "Our clothing brand",
+                  href: "https://gustavozapata.me/",
                 },
               ].map((project) => (
-                <Link key={project.name} href="#" className="block">
+                <Link
+                  key={project.name}
+                  className="block"
+                  href={project.href}
+                  target="_blank"
+                >
                   <Card>
                     <CardContent className="p-6 flex flex-col items-center space-y-4">
                       <Image
