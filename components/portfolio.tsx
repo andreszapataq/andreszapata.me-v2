@@ -31,7 +31,7 @@ export function Portfolio() {
       <header className="px-4 lg:px-6 h-14 flex items-center justify-between">
         <Link className="flex items-center justify-center" href="#">
           <span className="sr-only">Andres Zapata</span>
-          <span className="font-bold text-xl">Andres Zapata</span>
+          <span className="font-bold text-xl">andreszapata.me</span>
         </Link>
         <button onClick={toggleMenu} className="lg:hidden">
           <Menu className="h-6 w-6" />
@@ -152,22 +152,22 @@ export function Portfolio() {
               {[
                 {
                   name: "Jhonny Aponza",
-                  logo: "/placeholder.svg",
+                  logo: "/images/jhonny-aponza.svg",
                   description: "A revolutionary web app",
                 },
                 {
                   name: "NAB Tax Services",
-                  logo: "/placeholder.svg",
+                  logo: "/images/nab.svg",
                   description: "E-commerce platform",
                 },
                 {
                   name: "Vive Solutions",
-                  logo: "/placeholder.svg",
+                  logo: "/images/vive-solutions.svg",
                   description: "AI-powered analytics tool",
                 },
                 {
                   name: "Zanto",
-                  logo: "/placeholder.svg",
+                  logo: "/images/zanto.svg",
                   description: "Cloud-based SaaS solution",
                 },
               ].map((project) => (
