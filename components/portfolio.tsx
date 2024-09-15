@@ -172,7 +172,7 @@ export function Portfolio() {
                   name: "Zanto",
                   logo: "/images/zanto.svg",
                   description: "Our clothing brand",
-                  href: "#",
+                  href: "https://gustavozapata.me/",
                 },
               ].map((project) => (
                 <Link
