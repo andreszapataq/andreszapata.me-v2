@@ -207,9 +207,11 @@ export function Portfolio() {
             <div className="flex flex-col md:flex-row gap-8 items-start justify-between">
               <div className="flex-1 space-y-4">
                 <h3 className="text-xl font-semibold">Our email</h3>
-                <Button className="w-full" size="lg">
-                  <Mail className="mr-2 h-4 w-4" />
-                  contacto@andreszapata.me
+                <Button className="w-full" size="lg" asChild>
+                  <a href="mailto:contacto@andreszapata.me">
+                    <Mail className="mr-2 h-4 w-4" />
+                    contacto@andreszapata.me
+                  </a>
                 </Button>
               </div>
               <div className="flex-1 flex items-center justify-center">
@@ -217,10 +219,19 @@ export function Portfolio() {
               </div>
               <div className="flex-1 w-full space-y-4">
                 <h3 className="text-xl font-semibold">{`You'd like to complete this form`}</h3>
-                <form className="space-y-4">
-                  <Input placeholder="Name" />
-                  <Input placeholder="Email" type="email" />
-                  <Textarea placeholder="Your message" />
+                <form
+                  className="space-y-4"
+                  action="https://formspree.io/f/mwkdjvpj"
+                  method="POST"
+                >
+                  <Input placeholder="Name" type="text" name="name" required />
+                  <Input
+                    placeholder="Email"
+                    type="email"
+                    name="email"
+                    required
+                  />
+                  <Textarea placeholder="Your message" name="message" />
                   <Button className="w-full" type="submit">
                     Send
                   </Button>
@@ -235,15 +246,27 @@ export function Portfolio() {
           © {currentYear} andreszapata.me All rights reserved.
         </p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-xs hover:underline underline-offset-4" href="#">
+          <Link
+            className="text-xs hover:underline underline-offset-4"
+            href="https://twitter.com/andreszapataq"
+            target="_blank"
+          >
             <span className="sr-only">Twitter</span>
             <SiX className="h-4 w-4" />
           </Link>
-          <Link className="text-xs hover:underline underline-offset-4" href="#">
+          <Link
+            className="text-xs hover:underline underline-offset-4"
+            href="https://www.linkedin.com/in/andreszapataq/"
+            target="_blank"
+          >
             <span className="sr-only">LinkedIn</span>
             <SiLinkedin className="h-4 w-4" />
           </Link>
-          <Link className="text-xs hover:underline underline-offset-4" href="#">
+          <Link
+            className="text-xs hover:underline underline-offset-4"
+            href="https://github.com/andreszapataq"
+            target="_blank"
+          >
             <span className="sr-only">GitHub</span>
             <SiGithub className="h-4 w-4" />
           </Link>
