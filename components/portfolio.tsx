@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { CardContent, Card } from "@/components/ui/card";
-import { Mail, Menu, X } from "lucide-react";
+import { Mail, Menu, X, Heart } from "lucide-react";
 import {
   SiJavascript,
   SiReact,
@@ -16,6 +16,8 @@ import {
   SiX,
   SiLinkedin,
   SiGithub,
+  SiAstro,
+  SiWordpress,
 } from "@icons-pack/react-simple-icons";
 import Link from "next/link";
 import Image from "next/image";
@@ -153,26 +155,30 @@ export function Portfolio() {
                 {
                   name: "Jhonny Aponza",
                   logo: "/images/jhonny-aponza.svg",
-                  description: "Keynote speaker website done with Astro",
+                  description: "Keynote speaker website",
                   href: "https://jhonnyaponza.org/",
+                  tech: { name: "Astro", icon: SiAstro },
                 },
                 {
                   name: "NAB Tax Services",
                   logo: "/images/nab.svg",
-                  description: "Tax firm website done with Astro",
+                  description: "Tax firm website",
                   href: "https://nabtaxservices.com/",
+                  tech: { name: "Astro", icon: SiAstro },
                 },
                 {
                   name: "Vive Solutions",
                   logo: "/images/vive-solutions.svg",
-                  description: "Medical devices website done with WP",
+                  description: "Medical devices website",
                   href: "https://vivesolutions.co/",
+                  tech: { name: "WordPress", icon: SiWordpress },
                 },
                 {
                   name: "Zanto",
                   logo: "/images/zanto.svg",
                   description: "Our clothing brand",
-                  href: "#",
+                  href: "https://gustavozapata.me/",
+                  tech: { name: "Love", icon: Heart },
                 },
               ].map((project) => (
                 <Link
@@ -195,9 +201,17 @@ export function Portfolio() {
                         width="96"
                       />
                       <h3 className="font-bold text-xl">{project.name}</h3>
-                      <p className="text-sm text-gray-500 dark:text-gray-400 text-center">
+                      <p className="text-sm text-center">
                         {project.description}
                       </p>
+                      {project.tech && (
+                        <div className="flex items-center space-x-2">
+                          <project.tech.icon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                          <span className="text-sm text-gray-500 dark:text-gray-400">
+                            {project.tech.name}
+                          </span>
+                        </div>
+                      )}
                     </CardContent>
                   </Card>
                 </Link>
