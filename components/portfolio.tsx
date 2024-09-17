@@ -127,18 +127,23 @@ export function Portfolio() {
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
               {[
-                { name: "JavaScript", icon: SiJavascript },
-                { name: "React", icon: SiReact },
-                { name: "Node.js", icon: SiNodedotjs },
-                { name: "MongoDB", icon: SiMongodb },
-                { name: "Tailwind CSS", icon: SiTailwindcss },
-                { name: "AWS", icon: SiAmazonwebservices },
+                { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+                { name: "React", icon: SiReact, color: "#61DAFB" },
+                { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+                { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+                { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+                { name: "AWS", icon: SiAmazonwebservices, color: "#FF9900" },
               ].map((skill) => (
                 <div
                   key={skill.name}
-                  className="flex flex-col items-center space-y-2"
+                  className="flex flex-col items-center space-y-2 group"
                 >
-                  <skill.icon className="w-12 h-12" />
+                  <skill.icon
+                    className="w-12 h-12 transition-all duration-300 group-hover:scale-125 text-gray-600 group-hover:text-[color:var(--icon-color)]"
+                    style={
+                      { "--icon-color": skill.color } as React.CSSProperties
+                    }
+                  />
                   <h3 className="font-medium">{skill.name}</h3>
                 </div>
               ))}
