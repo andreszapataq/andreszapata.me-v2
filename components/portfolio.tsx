@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { CardContent, Card } from "@/components/ui/card";
-import { Mail, Menu, X, Heart } from "lucide-react";
+import { Mail, Menu, X } from "lucide-react";
 import {
   SiJavascript,
   SiReact,
@@ -160,31 +160,38 @@ export function Portfolio() {
                 {
                   name: "Jhonny Aponza",
                   logo: "/images/jhonny-aponza.svg",
-                  description: "Keynote speaker website",
+                  description: "Keynote Speaker Website",
                   href: "https://jhonnyaponza.org/",
                   tech: { name: "Astro", icon: SiAstro },
                 },
                 {
+                  name: "Dr. Mario Marín",
+                  logo: "/images/mario-marin.svg",
+                  description: "MD, Spine Surgeon Website",
+                  href: "https://doctormariomarintroncoso.com/",
+                  tech: { name: "WordPress", icon: SiWordpress },
+                },
+                {
                   name: "NAB Tax Services",
                   logo: "/images/nab.svg",
-                  description: "Tax firm website",
+                  description: "Tax Firm Website",
                   href: "https://nabtaxservices.com/",
                   tech: { name: "Astro", icon: SiAstro },
                 },
                 {
                   name: "Vive Solutions",
                   logo: "/images/vive-solutions.svg",
-                  description: "Medical devices website",
+                  description: "Medical Devices Website",
                   href: "https://vivesolutions.co/",
                   tech: { name: "WordPress", icon: SiWordpress },
-                },
+                },/* 
                 {
                   name: "Zanto",
                   logo: "/images/zanto.svg",
                   description: "Our clothing brand",
                   href: "https://gustavozapata.me/",
                   tech: { name: "Love", icon: Heart },
-                },
+                }, */
               ].map((project) => (
                 <Link
                   key={project.name}
