@@ -119,7 +119,7 @@ export function Portfolio() {
         </section>
         <section
           id="skills"
-          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800"
+          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800 rounded-3xl"
         >
           <div className="max-w-5xl mx-auto px-4">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-8 font-sans">
@@ -239,7 +239,7 @@ export function Portfolio() {
         </section>
         <section
           id="contact"
-          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800"
+          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800 rounded-3xl"
         >
           <div className="max-w-5xl mx-auto px-4">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-8 font-sans">
