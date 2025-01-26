@@ -247,7 +247,7 @@ export function Portfolio() {
             </h2>
             <div className="flex flex-col md:flex-row gap-8 items-start justify-between">
               <div className="flex-1 space-y-4">
-                <h3 className="text-xl font-semibold">Email</h3>
+                <h3 className="text-xl font-semibold">Get in Touch via Email</h3>
                 <Button className="w-full bg-blue-600 hover:bg-blue-700" size="lg" asChild>
                   <a href="mailto:contacto@andreszapata.me">
                     <Mail className="mr-2 h-4 w-4" />
