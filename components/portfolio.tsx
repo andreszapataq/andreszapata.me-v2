@@ -243,11 +243,11 @@ export function Portfolio() {
         >
           <div className="max-w-5xl mx-auto px-4">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-8 font-sans">
-              Contact us
+              Contact me
             </h2>
             <div className="flex flex-col md:flex-row gap-8 items-start justify-between">
               <div className="flex-1 space-y-4">
-                <h3 className="text-xl font-semibold">Our email</h3>
+                <h3 className="text-xl font-semibold">Email</h3>
                 <Button className="w-full bg-blue-600 hover:bg-blue-700" size="lg" asChild>
                   <a href="mailto:contacto@andreszapata.me">
                     <Mail className="mr-2 h-4 w-4" />
@@ -267,7 +267,7 @@ export function Portfolio() {
                 >
                   <Input
                     className="focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-blue-500 focus-visible:shadow-none"
-                    placeholder="Tu nombre"
+                    placeholder="Name"
                     type="text"
                     name="name"
                     required
@@ -281,7 +281,7 @@ export function Portfolio() {
                   />
                   <Textarea
                     className="min-h-[100px] resize-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-blue-500 focus-visible:shadow-none"
-                    placeholder="Tu mensaje"
+                    placeholder="Message"
                     name="message"
                   />
                   <Button className="w-full bg-blue-600 hover:bg-blue-700" type="submit">
