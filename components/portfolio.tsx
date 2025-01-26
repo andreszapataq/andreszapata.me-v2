@@ -244,7 +244,7 @@ export function Portfolio() {
             <div className="flex flex-col md:flex-row gap-8 items-start justify-between">
               <div className="flex-1 space-y-4">
                 <h3 className="text-xl font-semibold">Our email</h3>
-                <Button className="w-full" size="lg" asChild>
+                <Button className="w-full bg-blue-600 hover:bg-blue-700" size="lg" asChild>
                   <a href="mailto:contacto@andreszapata.me">
                     <Mail className="mr-2 h-4 w-4" />
                     contacto@andreszapata.me
@@ -269,7 +269,7 @@ export function Portfolio() {
                     required
                   />
                   <Textarea placeholder="Your message" name="message" />
-                  <Button className="w-full" type="submit">
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700" type="submit">
                     Send
                   </Button>
                 </form>
