@@ -266,21 +266,21 @@ export function Portfolio() {
                   method="POST"
                 >
                   <Input
-                    className="focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-blue-500 focus-visible:shadow-none"
+                    className="focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-blue-500 focus-visible:shadow-none text-base lg:text-sm"
                     placeholder="Name"
                     type="text"
                     name="name"
                     required
                   />
                   <Input
-                    className="focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-blue-500 focus-visible:shadow-none"
+                    className="focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-blue-500 focus-visible:shadow-none text-base lg:text-sm"
                     placeholder="Email"
                     type="email"
                     name="email"
                     required
                   />
                   <Textarea
-                    className="min-h-[100px] resize-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-blue-500 focus-visible:shadow-none"
+                    className="min-h-[100px] resize-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-blue-500 focus-visible:shadow-none text-base lg:text-sm"
                     placeholder="Message"
                     name="message"
                   />
