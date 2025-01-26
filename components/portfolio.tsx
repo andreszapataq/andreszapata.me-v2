@@ -30,10 +30,10 @@ export function Portfolio() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="px-4 lg:px-6 h-14 flex items-center justify-between">
+      <header className="px-4 lg:px-8 h-14 flex items-center justify-between max-w-7xl mx-auto w-full">
         <Link className="flex items-center justify-center" href="#">
           <span className="sr-only">Andres Zapata</span>
-          <span className="font-bold text-xl">andreszapata.me</span>
+          <span className="font-bold text-lg">andreszapata.me</span>
         </Link>
         <button onClick={toggleMenu} className="lg:hidden">
           <Menu className="h-6 w-6" />
@@ -101,12 +101,12 @@ export function Portfolio() {
           </nav>
         </div>
       </div>
-      <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
-          <div className="container px-4 md:px-6">
+      <main className="flex-1 max-w-7xl mx-auto w-full">
+        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 px-4">
+          <div className="max-w-5xl mx-auto">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+                <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl/none font-sans">
                   Say Hello To My Developer Portfolio
                 </h1>
                 <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
@@ -121,8 +121,8 @@ export function Portfolio() {
           id="skills"
           className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800"
         >
-          <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8">
+          <div className="max-w-5xl mx-auto px-4">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-8 font-sans">
               Skills
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
@@ -151,11 +151,11 @@ export function Portfolio() {
           </div>
         </section>
         <section id="work" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8">
+          <div className="max-w-5xl mx-auto px-4">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-8 font-sans">
               Work & Projects
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 grid-rows-[auto] auto-rows-fr">
               {[
                 {
                   name: "Jhonny Aponza",
@@ -195,15 +195,15 @@ export function Portfolio() {
               ].map((project) => (
                 <Link
                   key={project.name}
-                  className="block"
+                  className="block h-full"
                   href={project.href}
                   target="_blank"
                 >
-                  <Card>
-                    <CardContent className="p-6 flex flex-col items-center space-y-4">
+                  <Card className="h-full flex flex-col">
+                    <CardContent className="p-6 flex flex-col flex-1 items-start space-y-4">
                       <Image
                         alt={`${project.name} logo`}
-                        className="w-24 h-24 object-contain"
+                        className="w-24 h-24 object-contain mx-auto"
                         height="96"
                         src={project.logo}
                         style={{
@@ -212,18 +212,20 @@ export function Portfolio() {
                         }}
                         width="96"
                       />
-                      <h3 className="font-bold text-xl">{project.name}</h3>
-                      <p className="text-sm text-center">
-                        {project.description}
-                      </p>
-                      {project.tech && (
-                        <div className="flex items-center space-x-2">
-                          <project.tech.icon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                          <span className="text-sm text-gray-500 dark:text-gray-400">
-                            {project.tech.name}
-                          </span>
-                        </div>
-                      )}
+                      <div className="w-full space-y-4 flex flex-col flex-1">
+                        <h3 className="font-bold text-xl w-full text-center">{project.name}</h3>
+                        <p className="text-sm text-center line-clamp-2 min-h-[2.5rem]">
+                          {project.description}
+                        </p>
+                        {project.tech && (
+                          <div className="flex items-center space-x-2 justify-center mt-auto">
+                            <project.tech.icon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                            <span className="text-sm text-gray-500 dark:text-gray-400">
+                              {project.tech.name}
+                            </span>
+                          </div>
+                        )}
+                      </div>
                     </CardContent>
                   </Card>
                 </Link>
@@ -235,8 +237,8 @@ export function Portfolio() {
           id="contact"
           className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800"
         >
-          <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8">
+          <div className="max-w-5xl mx-auto px-4">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-8 font-sans">
               Contact us
             </h2>
             <div className="flex flex-col md:flex-row gap-8 items-start justify-between">
@@ -276,7 +278,7 @@ export function Portfolio() {
           </div>
         </section>
       </main>
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
+      <footer className="max-w-7xl mx-auto w-full flex flex-col gap-2 sm:flex-row py-6 shrink-0 items-center px-4 border-t">
         <p className="text-xs text-gray-500 dark:text-gray-400">
           © {currentYear} andreszapata.me All rights reserved.
         </p>
