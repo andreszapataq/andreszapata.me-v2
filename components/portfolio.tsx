@@ -41,19 +41,19 @@ export function Portfolio() {
         </button>
         <nav className="hidden lg:flex gap-4 sm:gap-6">
           <Link
-            className="text-sm font-medium hover:underline underline-offset-4"
+            className="text-sm font-medium hover:underline underline-offset-4 decoration-blue-500"
             href="#skills"
           >
             Skills
           </Link>
           <Link
-            className="text-sm font-medium hover:underline underline-offset-4"
+            className="text-sm font-medium hover:underline underline-offset-4 decoration-blue-500"
             href="#work"
           >
             Work
           </Link>
           <Link
-            className="text-sm font-medium hover:underline underline-offset-4"
+            className="text-sm font-medium hover:underline underline-offset-4 decoration-blue-500"
             href="#contact"
           >
             Contact
@@ -195,25 +195,29 @@ export function Portfolio() {
               ].map((project) => (
                 <Link
                   key={project.name}
-                  className="block h-full"
+                  className="block h-full group"
                   href={project.href}
                   target="_blank"
                 >
-                  <Card className="h-full flex flex-col">
+                  <Card className="h-full flex flex-col transition-all duration-300 ease-in-out group-hover:-translate-y-2 group-hover:shadow-xl group-hover:border-blue-500 dark:group-hover:border-blue-400">
                     <CardContent className="p-6 flex flex-col flex-1 items-start space-y-4">
-                      <Image
-                        alt={`${project.name} logo`}
-                        className="w-24 h-24 object-contain mx-auto"
-                        height="96"
-                        src={project.logo}
-                        style={{
-                          aspectRatio: "96/96",
-                          objectFit: "contain",
-                        }}
-                        width="96"
-                      />
+                      <div className="relative w-full flex justify-center">
+                        <Image
+                          alt={`${project.name} logo`}
+                          className="w-24 h-24 object-contain mx-auto"
+                          height="96"
+                          src={project.logo}
+                          style={{
+                            aspectRatio: "96/96",
+                            objectFit: "contain",
+                          }}
+                          width="96"
+                        />
+                      </div>
                       <div className="w-full space-y-4 flex flex-col flex-1">
-                        <h3 className="font-bold text-xl w-full text-center">{project.name}</h3>
+                        <h3 className="font-bold text-xl w-full text-center transition-colors duration-300">
+                          {project.name}
+                        </h3>
                         <p className="text-sm text-center line-clamp-2 min-h-[2.5rem]">
                           {project.description}
                         </p>
@@ -261,14 +265,25 @@ export function Portfolio() {
                   action="https://formspree.io/f/mwkdjvpj"
                   method="POST"
                 >
-                  <Input placeholder="Name" type="text" name="name" required />
                   <Input
+                    className="focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-blue-500 focus-visible:shadow-none"
+                    placeholder="Tu nombre"
+                    type="text"
+                    name="name"
+                    required
+                  />
+                  <Input
+                    className="focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-blue-500 focus-visible:shadow-none"
                     placeholder="Email"
                     type="email"
                     name="email"
                     required
                   />
-                  <Textarea placeholder="Your message" name="message" />
+                  <Textarea
+                    className="min-h-[100px] resize-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-blue-500 focus-visible:shadow-none"
+                    placeholder="Tu mensaje"
+                    name="message"
+                  />
                   <Button className="w-full bg-blue-600 hover:bg-blue-700" type="submit">
                     Send
                   </Button>
