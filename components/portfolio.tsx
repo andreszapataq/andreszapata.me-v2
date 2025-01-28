@@ -26,6 +26,7 @@ export function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
   const [submitMessage, setSubmitMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const currentYear = new Date().getFullYear();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -271,6 +272,7 @@ export function Portfolio() {
                     e.preventDefault();
                     const form = e.currentTarget;
                     const formData = new FormData(form);
+                    setIsSubmitting(true);
                     
                     try {
                       const response = await fetch(form.action, {
@@ -289,11 +291,13 @@ export function Portfolio() {
                     } catch (error) {
                       setSubmitStatus('error');
                       setSubmitMessage('Connection error. Please check your network.');
+                    } finally {
+                      setIsSubmitting(false);
+                      setTimeout(() => {
+                        setSubmitStatus(null);
+                        setSubmitMessage('');
+                      }, 5000);
                     }
-                    setTimeout(() => {
-                      setSubmitStatus(null);
-                      setSubmitMessage('');
-                    }, 5000);
                   }}
                 >
                   <Input
@@ -315,8 +319,22 @@ export function Portfolio() {
                     placeholder="Message"
                     name="message"
                   />
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700" type="submit">
-                    Send
+                  <Button 
+                    className="w-full bg-blue-600 hover:bg-blue-700" 
+                    type="submit"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <div className="flex items-center justify-center gap-2">
+                        <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Sending...
+                      </div>
+                    ) : (
+                      'Send'
+                    )}
                   </Button>
                   {submitStatus && (
                     <div className={`p-3 rounded-lg text-sm mt-4 ${
