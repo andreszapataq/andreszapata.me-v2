@@ -24,6 +24,8 @@ import Image from "next/image";
 
 export function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
+  const [submitMessage, setSubmitMessage] = useState('');
   const currentYear = new Date().getFullYear();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -262,8 +264,37 @@ export function Portfolio() {
                 <h3 className="text-xl font-semibold">{`You'd like to complete this form`}</h3>
                 <form
                   className="space-y-4"
-                  action="https://formspree.io/f/mwkdjvpj"
+                  action="/api/send-email"
                   method="POST"
+                  id="contactForm"
+                  onSubmit={async (e) => {
+                    e.preventDefault();
+                    const form = e.currentTarget;
+                    const formData = new FormData(form);
+                    
+                    try {
+                      const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                      });
+
+                      if (response.ok) {
+                        form.reset();
+                        setSubmitStatus('success');
+                        setSubmitMessage('Message sent successfully! Thank you.');
+                      } else {
+                        setSubmitStatus('error');
+                        setSubmitMessage('Error sending message. Please try again.');
+                      }
+                    } catch (error) {
+                      setSubmitStatus('error');
+                      setSubmitMessage('Connection error. Please check your network.');
+                    }
+                    setTimeout(() => {
+                      setSubmitStatus(null);
+                      setSubmitMessage('');
+                    }, 5000);
+                  }}
                 >
                   <Input
                     className="focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-blue-500 focus-visible:shadow-none text-base lg:text-sm"
@@ -287,6 +318,15 @@ export function Portfolio() {
                   <Button className="w-full bg-blue-600 hover:bg-blue-700" type="submit">
                     Send
                   </Button>
+                  {submitStatus && (
+                    <div className={`p-3 rounded-lg text-sm mt-4 ${
+                      submitStatus === 'success' 
+                        ? 'bg-green-100 text-green-700' 
+                        : 'bg-red-100 text-red-700'
+                    }`}>
+                      {submitMessage}
+                    </div>
+                  )}
                 </form>
               </div>
             </div>
