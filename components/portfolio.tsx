@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -28,6 +28,19 @@ export function Portfolio() {
   const [submitMessage, setSubmitMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const currentYear = new Date().getFullYear();
+
+  // Bloquear scroll cuando el menú está abierto
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, [isMenuOpen]);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -74,7 +87,7 @@ export function Portfolio() {
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="p-6">
+        <div className="p-6 h-full flex flex-col">
           <button onClick={toggleMenu} className="absolute top-4 right-4">
             <X className="h-6 w-6" />
             <span className="sr-only">Close menu</span>
@@ -102,6 +115,13 @@ export function Portfolio() {
               Contact
             </Link>
           </nav>
+          <Link 
+            className="mt-auto py-4 flex items-center justify-center border-t" 
+            href="#" 
+            onClick={toggleMenu}
+          >
+            <span className="font-bold text-lg">andreszapata.me</span>
+          </Link>
         </div>
       </div>
       <main className="flex-1 max-w-7xl mx-auto w-full">
