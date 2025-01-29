@@ -291,26 +291,34 @@ export function Portfolio() {
                   onSubmit={async (e) => {
                     e.preventDefault();
                     const form = e.currentTarget;
-                    const formData = new FormData(form);
+                    const formData = {
+                      name: (form.elements.namedItem('name') as HTMLInputElement).value,
+                      email: (form.elements.namedItem('email') as HTMLInputElement).value,
+                      message: (form.elements.namedItem('message') as HTMLTextAreaElement).value
+                    };
                     setIsSubmitting(true);
                     
                     try {
-                      const response = await fetch(form.action, {
+                      const response = await fetch('https://email-api-beryl.vercel.app/api/send-email', {
                         method: 'POST',
-                        body: formData,
+                        headers: {
+                          'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(formData),
                       });
 
                       if (response.ok) {
                         form.reset();
                         setSubmitStatus('success');
-                        setSubmitMessage('Message sent successfully! Thank you.');
+                        setSubmitMessage('Message sent successfully!');
                       } else {
+                        const errorData = await response.json();
                         setSubmitStatus('error');
-                        setSubmitMessage('Error sending message. Please try again.');
+                        setSubmitMessage(errorData.error || 'Error sending message');
                       }
                     } catch (error) {
                       setSubmitStatus('error');
-                      setSubmitMessage('Connection error. Please check your network.');
+                      setSubmitMessage('Connection error. Please try again.');
                     } finally {
                       setIsSubmitting(false);
                       setTimeout(() => {
