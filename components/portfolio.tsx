@@ -310,7 +310,7 @@ export function Portfolio() {
                       if (response.ok) {
                         form.reset();
                         setSubmitStatus('success');
-                        setSubmitMessage('Message sent successfully!');
+                        setSubmitMessage('Message sent successfully! Thank you.');
                       } else {
                         const errorData = await response.json();
                         setSubmitStatus('error');
